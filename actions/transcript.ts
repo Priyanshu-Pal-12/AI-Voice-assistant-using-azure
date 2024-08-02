@@ -58,12 +58,14 @@ async function transcript(prevState: any, formData: FormData) {
   const messages: ChatRequestMessage[] = [
     {
       role: "system",
+     //@ts-ignore
       content:
        "You are a helpful assistant. You will answer questions and reply I cannot answer that if you dont know the answer.",
-    },
+    }, 
+     //@ts-ignore
      { role: "user", content: result.text },
   ];
-
+  //@ts-ignore
   console.log(`Messages: ${messages.map((m) => m.content).join("\n")}`);
 
   const completions = await client.getChatCompletions(
